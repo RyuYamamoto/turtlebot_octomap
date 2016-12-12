@@ -1,7 +1,8 @@
-### 3D Mapping using Octomap on Turtle Bot
+# 3D Mapping using Octomap on Turtle Bot
 
 Install
 -----
+
 1. Install Octomap and Rtabmap  
 ```
 $ sudo apt-get install ros-indigo-octomap ros-indigo-octomap-plugin ros-indigo-rtabmap ros-indigo-rtabmap-ros
