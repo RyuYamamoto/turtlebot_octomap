@@ -19,8 +19,6 @@ $ cd ~/catkin_ws/src
 $ wstool init
 $ wstool set turtlebot_octomap https://github.com/RyuYamamoto/turtlebot_octomap.git --git
 $ wstool update turtlebot_octomap
-$ cd ~/catkin_ws
-$ catkin_make
 ```
 
 Run
