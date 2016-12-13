@@ -2,18 +2,21 @@
 
 <launch>
 	<include file="$(find turtlebot_gazebo)/launch/turtlebot_world.launch" />
-	<include file="$(find rtabmap_ros)/launch/rgbd_mapping.launch">
-		<arg name="rtabmapviz" value="false" />
-		<arg name="rviz" value="true" />
-		<arg name="rviz_cfg" value="-d $(find turtlebot_octomap)/config/octomap_test.rviz" />
-	</include>
 
-	<node pkg="tf" type="static_transform_publisher" name="map_world_broadcaster" args="0 0 0 0 0 0 map world 100" />
+	<include file="$(find turtlebot_octomap)/launch/turtlebot_rtabmap.launch" />
+
+	<include file="$(find turtlebot_rtabmap_simulation)/launch/turtlebot_rtabmap_mapping.launch" />
+	
+	<node pkg="tf" type="static_transform_publisher" name="map_world_broadcaster" args="0 0 0 0 0 0 world /map 100" />
 
 	<node name="octomap_server" pkg="octomap_server" type="octomap_server_node">
-		<remap from="cloud_in" to="/camera/depth/points" />
-		<param name="frame_id" type="string" value="/odom" />
+		<remap from="cloud_in" to="/rtabmap/cloud_map" />
+		<param name="frame_id" type="string" value="map" />
 		<param name="latch" value="false" />
 		<param name="resolution" value="0.05" />
 	</node>
+
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find turtlebot_octomap)/config/octomap_test.rviz" />
+
+	<include file="$(find turtlebot_teleop)/launch/logitech.launch" />
 </launch>
