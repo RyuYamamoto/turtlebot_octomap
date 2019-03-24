@@ -4,7 +4,7 @@
 ## Install
 ### Install Octomap and Rtabmap  
 ```
-$ sudo apt install ros-kinetic-octomap ros-kinetic-octomap-plugin ros-kinetic-rtabmap ros-kinetic-rtabmap-ros
+$ sudo apt install ros-kinetic-octomap ros-kinetic-octomap-rviz-plugins ros-kinetic-rtabmap ros-kinetic-rtabmap-ros
 ```
 ### TurtleBot and TurtleBot3 Installation  
 ```
